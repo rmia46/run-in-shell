@@ -30,6 +30,6 @@ runp <filename>
 ```
 For example to compile test.cpp file you need the command `runp test.cpp`. This will redirect the output to output.txt. 
 > [!WARNING]  
-> Make sure to create `input.txt` and `output.txt` files.
+> Make sure to create `input.txt` and `output.txt` files. And the compilers or interpreters must be installed on the system and avaialble to the system $PATH
 
 I use this command for competitive programming. It's handy :)
