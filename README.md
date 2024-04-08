@@ -1,6 +1,8 @@
 # RUN in POWERSHELL
 ###  This is a powershell script to run different source files like .c, .cpp, .lua etc. More like vs-codes code-runner extension.
 
+![RUN POWERSHELL DEMO](https://i.ibb.co/0Mm9zQG/powershell-run-demo.gif)
+
 ## Installation
 Copy the source code and then append it to the powershell `$PROFILE` and you are done. But..
 
