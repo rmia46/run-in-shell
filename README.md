@@ -2,7 +2,7 @@
 ###  This is a powershell script to run different source files like .c, .cpp, .lua etc. More like vs-codes code-runner extension.
 
 ## Installation
-Copy the source code and then append it to the powershell `$PROFILE`
+Copy the source code and then append it to the powershell `$PROFILE` and you are done. But..
 
 If you haven't previously created any profile run the following command in the powershell window.
 
