@@ -17,6 +17,12 @@ notepad $PROFILE
 ```
 Once notepad has opened the powershell profile paste the configuration there and save the file. `Reload` your powershell session to load the config.
 
+If you get permission error about running scripts then run the following code as an administrator.
+```
+Set-ExecutionPolicy RemoteSigned
+```
+Then restart terminal.
+
 ## Usage
 ### run
 To run a file and get the output on the shell use-
