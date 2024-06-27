@@ -74,7 +74,7 @@ To run a file and get the output on the shell use-
 ```bash
 run <filename>
 ```
-For example to compile test.cpp file you need the command `run test.cpp`. Likewise you are able to run c, python, js, lua, java files. 
+For example to compile test.cpp file you need the command `run test.cpp`. Likewise you can run c, python, js, lua, java files. 
 To add support for more languages you need to modify the configuration yourself. 
 
 ### runp
@@ -86,6 +86,6 @@ For example to compile test.cpp file you need the command `runp test.cpp`. This 
 > [!WARNING]  
 > Make sure to create `input.txt` and `output.txt` files. And the compilers or interpreters must be installed on the system and avaialble to the system $PATH
 
-For competitive programming with a combination of vim these scripts come handy :)
+For competitive programming with the combination of vim, these scripts come handy :)
 
 Happy Coding!!!
