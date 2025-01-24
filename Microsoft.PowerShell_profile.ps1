@@ -73,21 +73,22 @@ function run {
     )
 
     $extension = [System.IO.Path]::GetExtension($filename).ToLower()
+    $outputExe = [System.IO.Path]::ChangeExtension($filename, ".exe")
 
     switch ($extension) {
         ".c" {
-            $output = & gcc $filename -o output.exe 2>&1
+            $output = & gcc $filename -o $outputExe 2>&1
             if ($LASTEXITCODE -eq 0) {
-                & .\output.exe
+                & .\$outputExe
             } else {
                 Write-Output $output
             }
         }
 
         ".cpp" {
-            $output = & g++ $filename -o output.exe 2>&1
+            $output = & g++ $filename -o $outputExe 2>&1
             if ($LASTEXITCODE -eq 0) {
-                & .\output.exe
+                & .\$outputExe
             } else {
                 Write-Output $output
             }
