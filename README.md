@@ -21,20 +21,20 @@ The scripts work on both Linux and Windows operating systems. But as they are ba
    mkdir ~/myscripts
    ```
 
-2. Copy the `run.sh` and `runp.sh` scripts into the `myscripts` folder after downlooading them from this repository.
+2. Copy the `run.sh` and `runf.sh` scripts into the `myscripts` folder after downlooading them from this repository.
 
 3. Add the following aliases to your shell configuration file (e.g., `.bashrc` or `.zshrc`):
 
    ```bash
    alias run="bash /home/myscripts/run.sh"
-   alias runp="bash /home/myscripts/runp.sh"
+   alias runf="bash /home/myscripts/runf.sh"
    ```
 
 4. If you encounter any execution permission errors, make the scripts executable:
 
    ```bash
    chmod +x /home/myscripts/run.sh
-   chmod +x /home/myscripts/runp.sh
+   chmod +x /home/myscripts/runf.sh
    ```
 
 5. Source your shell configuration file to apply the changes and you are done:
@@ -77,12 +77,12 @@ run <filename>
 For example to compile test.cpp file you need the command `run test.cpp`. Likewise you can run c, python, js, lua, java files. 
 To add support for more languages you need to modify the configuration yourself. 
 
-### runp
+### runf
 To run a file which might take input from `input.txt` and return the output on `output.txt` file use-
 ```bash
-runp <filename>
+runf <filename>
 ```
-For example to compile test.cpp file you need the command `runp test.cpp`. This will redirect the output to output.txt. 
+For example to compile test.cpp file you need the command `runf test.cpp`. This will redirect the output to output.txt. 
 > [!WARNING]  
 > Make sure to create `input.txt` and `output.txt` files. And the compilers or interpreters must be installed on the system and avaialble to the system $PATH
 
