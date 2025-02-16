@@ -1,7 +1,7 @@
 # function to run source files and then write the output to output.txt file
 # It looks for input in the input.txt file
-# usage runp <filename>
-function runp {
+# usage runf <filename>
+function runf {
     param (
         [Parameter(Mandatory=$true, Position=0)]
         [string]$filename
