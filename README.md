@@ -48,6 +48,9 @@ The scripts work on both Linux and Windows operating systems. But as they are ba
 ## Windows Setup
 
 ### Installation
+For automatic installation, download the `run-in-shell-win-installer.ps1` file and run it in powershell by right clicking on the file (try with administrator if necessary). If installation fails for any reason, kindly go through the manual process described below.
+
+#### Mnaual Installation
 Copy the source code and then append it to the powershell `$PROFILE` and you are done. But..
 
 If you haven't previously created any profile run the following command in the powershell window.
