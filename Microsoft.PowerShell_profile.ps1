@@ -79,7 +79,7 @@ function run {
         ".c" {
             $output = & gcc $filename -o $outputExe 2>&1
             if ($LASTEXITCODE -eq 0) {
-                & .\$outputExe
+                & $outputExe
             } else {
                 Write-Output $output
             }
@@ -88,7 +88,7 @@ function run {
         ".cpp" {
             $output = & g++ $filename -o $outputExe 2>&1
             if ($LASTEXITCODE -eq 0) {
-                & .\$outputExe
+                & $outputExe
             } else {
                 Write-Output $output
             }
