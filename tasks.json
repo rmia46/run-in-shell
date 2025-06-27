@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run with run",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "run '${file}'"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Run with runf",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "runf '${file}'"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      }
+    }
+  ]
+}
