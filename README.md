@@ -1,15 +1,21 @@
 # Run In Shell
 
-This repository contains a set of scripts that allow you to execute source code files in various programming languages, including C, C++, Java, JavaScript, Lua, and Python. 
-The scripts work on both Linux and Windows operating systems. But as they are bash scripts they should work in mac too. I don't have a mac yet so, the guide here is only limited to windows and linux.
+This repository contains a set of scripts that allow you to execute source code files in various programming languages, including C, C++, Java, JavaScript, Lua, and Python.
+The scripts work on both Linux and Windows operating systems. Since they are shell scripts, they should work on macOS as well. However, this guide currently focuses on Windows and Linux environments.
 
 ## Table of Contents
 
-- [Linux Setup](#linux-setup)
-  - [Installation](#installation)
-- [Windows Setup](#windows-setup)
-  - [Installation](#installation-1)
-- [Usage](#usage)
+* [Linux Setup](#linux-setup)
+
+  * [Installation](#installation)
+* [Windows Setup](#windows-setup)
+
+  * [Installation](#installation-1)
+  * [Manual Installation](#manual-installation)
+* [VS Code Integration](#vs-code-integration)
+* [Usage](#usage)
+
+---
 
 ## Linux Setup
 
@@ -21,23 +27,23 @@ The scripts work on both Linux and Windows operating systems. But as they are ba
    mkdir ~/myscripts
    ```
 
-2. Copy the `run.sh` and `runf.sh` scripts into the `myscripts` folder after downlooading them from this repository.
+2. Copy the `run.sh` and `runf.sh` scripts into the `myscripts` folder after downloading them from this repository.
 
 3. Add the following aliases to your shell configuration file (e.g., `.bashrc` or `.zshrc`):
 
    ```bash
-   alias run="bash /home/myscripts/run.sh"
-   alias runf="bash /home/myscripts/runf.sh"
+   alias run="bash ~/myscripts/run.sh"
+   alias runf="bash ~/myscripts/runf.sh"
    ```
 
 4. If you encounter any execution permission errors, make the scripts executable:
 
    ```bash
-   chmod +x /home/myscripts/run.sh
-   chmod +x /home/myscripts/runf.sh
+   chmod +x ~/myscripts/run.sh
+   chmod +x ~/myscripts/runf.sh
    ```
 
-5. Source your shell configuration file to apply the changes and you are done:
+5. Source your shell configuration file to apply the changes:
 
    ```bash
    source ~/.bashrc
@@ -45,54 +51,148 @@ The scripts work on both Linux and Windows operating systems. But as they are ba
    source ~/.zshrc
    ```
 
+---
+
 ## Windows Setup
 
 ### Installation
-For automatic installation, download the `run-in-shell-win-installer.ps1` file and run it in powershell by right clicking on the file (try with administrator if necessary). If installation fails for any reason, kindly go through the manual process described below.
 
-#### Mnaual Installation
-Copy the source code and then append it to the powershell `$PROFILE` and you are done. But..
+For automatic installation, download the `run-in-shell-win-installer.ps1` file and run it in PowerShell by right-clicking the file (run as Administrator if necessary). If installation fails, follow the manual process described below.
 
-If you haven't previously created any profile run the following command in the powershell window.
+### Manual Installation
 
-```powershell
-New-Item -path $PROFILE -type file -force
-```
-Then edit with notepad 
-```powershell
-notepad $PROFILE
-```
-Once notepad has opened the powershell profile paste the configuration there and save the file. `Reload` your powershell session to load the config.
+1. Copy the script content and append it to your PowerShell `$PROFILE`. If you haven't previously created a profile, run the following command:
 
-If you get permission error about running scripts then run the following code as an administrator.
-```powershell
-Set-ExecutionPolicy RemoteSigned
+   ```powershell
+   New-Item -Path $PROFILE -Type File -Force
+   ```
+
+2. Then open it using:
+
+   ```powershell
+   notepad $PROFILE
+   ```
+
+3. Paste the script inside the file and save.
+
+4. Reload your PowerShell session to apply changes.
+
+5. If you encounter a permission error regarding script execution, run the following (as Administrator):
+
+   ```powershell
+   Set-ExecutionPolicy RemoteSigned
+   ```
+
+   Or, to enable for current user only:
+
+   ```powershell
+   Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+   ```
+
+6. Restart your terminal.
+
+---
+
+Thanks for the clarification! Here's the updated final section of your `README.md`, now including instructions for setting up keyboard shortcuts via `keybindings.json` as well:
+
+---
+
+## VS Code Integration
+
+To use these scripts via keyboard shortcuts inside Visual Studio Code:
+
+### 1. Set Up `tasks.json`
+
+1. Create a `.vscode` folder in the root of your project (if it doesn't already exist).
+2. Place the provided `tasks.json` file into the `.vscode` folder.
+3. This file defines two tasks:
+
+   * **Run with run** → executes the file using `run`
+   * **Run with runf** → executes the file using `runf` (uses `input.txt` and writes to `output.txt`)
+
+> ⚠️ Ensure that the `run` and `runf` commands are globally available from your terminal before using them in VS Code.
+
+---
+
+### 2. Add Keyboard Shortcuts
+
+To bind the tasks to convenient keys like `Ctrl + Alt + [` and `Ctrl + Alt + ]`, you need to edit your `keybindings.json`.
+
+#### Steps:
+
+1. Open VS Code.
+
+2. Go to:
+
+   ```
+   File → Preferences → Keyboard Shortcuts
+   ```
+
+3. Click the icon in the top-right corner that opens `keybindings.json` just on the left of split editor icon.
+
+4. Append the following entries **to the array**, making sure to add a comma `,` if there's already one or more entries:
+
+```json
+{
+    "key": "ctrl+alt+[",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run with run"
+},
+{
+    "key": "ctrl+alt+]",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run with runf"
+}
 ```
-or if you want to enable running scripts for current user only then run
-```powershell
-Set-ExecutionPolicy RemoteSigned --scope CurrentUser
-```
-Then restart terminal.
+
+You can customize the keys to your liking.
+
+> `tasks.json` only defines tasks, not their shortcuts — that's why you must edit `keybindings.json` separately.
+
+---
+
+With this setup, you’ll be able to run your source code files using the `run` and `runf` commands via keyboard shortcuts directly from VS Code — no need to open a terminal manually.
+
+---
 
 ## Usage
 
-### run
-To run a file and get the output on the shell use-
+### `run`
+
+To compile and execute a source file and see output in the shell:
+
 ```bash
 run <filename>
 ```
-For example to compile test.cpp file you need the command `run test.cpp`. Likewise you can run c, python, js, lua, java files. 
-To add support for more languages you need to modify the configuration yourself. 
 
-### runf
-To run a file which might take input from `input.txt` and return the output on `output.txt` file use-
+Example:
+
+```bash
+run test.cpp
+```
+
+This supports `.c`, `.cpp`, `.py`, `.js`, `.lua`, and `.java`. You can modify the script to support more languages as needed.
+
+### `runf`
+
+To compile and execute a file with input from `input.txt` and write output to `output.txt`:
+
 ```bash
 runf <filename>
 ```
-For example to compile test.cpp file you need the command `runf test.cpp`. This will redirect the output to output.txt. 
+
+Example:
+
+```bash
+runf test.cpp
+```
 > [!WARNING]  
-> Make sure to create `input.txt` and `output.txt` files. And the compilers or interpreters must be installed on the system and avaialble to the system $PATH
+> Ensure `input.txt` and `output.txt` exist in the current directory, and the required compilers/interpreters are installed and available in your system's `PATH`.
 
-For competitive programming with the combination of vim, these scripts come handy :)
+---
 
-Happy Coding!!!
+These scripts are especially handy for competitive programming or quick prototyping when paired with Vim or VS Code workflows.
+
+Happy Coding 😛
+
+---
