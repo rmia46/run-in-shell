@@ -29,6 +29,10 @@
         "echo": true,
         "reveal": "always",
         "panel": "shared"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
       }
     }
   ]
