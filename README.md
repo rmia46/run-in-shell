@@ -116,7 +116,7 @@ To use these scripts via keyboard shortcuts inside Visual Studio Code:
 
 ### 2. Add Keyboard Shortcuts
 
-To bind the tasks to convenient keys like `Ctrl + Alt + [` and `Ctrl + Alt + ]`, you need to edit your `keybindings.json`.
+By default you can use `Ctrl + Alt + B` to use `runf` (to compile and take input from `input.txt` and show output to `output.txt`). But if you want to bind the tasks to convenient keys like `Ctrl + Alt + [` and `Ctrl + Alt + ]`, you need to edit your `keybindings.json`. Otherwise the `run` command won't be avaialble to any keybindings.
 
 #### Steps:
 
