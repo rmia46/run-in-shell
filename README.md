@@ -68,6 +68,10 @@ If you get permission error about running scripts then run the following code as
 ```powershell
 Set-ExecutionPolicy RemoteSigned
 ```
+or if you want to enable running scripts for current user only then run
+```powershell
+Set-ExecutionPolicy RemoteSigned --scope CurrentUser
+```
 Then restart terminal.
 
 ## Usage
