@@ -89,15 +89,11 @@ fi
 echo "----------------------------------------------------"
 echo -e "${GREEN}Installation Complete!${RESET}"
 
-if [ $SUCCESS -eq 1 ]; then
-    # Yellow for the Action Required warning
-    echo -e "${YELLOW}ACTION REQUIRED:${RESET} The new 'run' and 'runf' aliases are ready."
-    echo "You must now apply them to your current session. Please copy and run the command below:"
-    echo ""
-    # Highlight the source command itself in yellow
-    echo -e "    ${YELLOW}source $SHELL_CONFIG${RESET}"
-    echo ""
-    echo "Alternatively, you can simply restart your terminal."
-fi
+echo -e "${YELLOW}ACTION REQUIRED:${RESET} The 'run' and 'runf' configuration files are updated."
+echo "You must now apply the changes to your current session. Please copy and run the command below:"
+echo ""
+echo -e "    ${YELLOW}source $SHELL_CONFIG${RESET}"
+echo ""
+echo "Alternatively, you can simply restart your terminal."
 
 echo "Happy Coding."
