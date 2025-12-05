@@ -21,26 +21,26 @@ The scripts work on both Linux and Windows operating systems. Since they are she
 
 ### Installation
 
-1. Create a folder named `myscripts` in your home directory:
+1. Create a folder named `.myscripts` in your home directory:
 
    ```bash
-   mkdir ~/myscripts
+   mkdir ~/.myscripts
    ```
 
-2. Copy the `run.sh` and `runf.sh` scripts into the `myscripts` folder after downloading them from this repository.
+2. Copy the `run.sh` and `runf.sh` scripts into the `.myscripts` folder after downloading them from this repository.
 
 3. Add the following aliases to your shell configuration file (e.g., `.bashrc` or `.zshrc`):
 
    ```bash
-   alias run="bash ~/myscripts/run.sh"
-   alias runf="bash ~/myscripts/runf.sh"
+   alias run="bash ~/.myscripts/run.sh"
+   alias runf="bash ~/.myscripts/runf.sh"
    ```
 
 4. If you encounter any execution permission errors, make the scripts executable:
 
    ```bash
-   chmod +x ~/myscripts/run.sh
-   chmod +x ~/myscripts/runf.sh
+   chmod +x ~/.myscripts/run.sh
+   chmod +x ~/.myscripts/runf.sh
    ```
 
 5. Source your shell configuration file to apply the changes:
