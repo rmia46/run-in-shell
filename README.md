@@ -20,7 +20,33 @@ The scripts work on both Linux and Windows operating systems. Since they are she
 ## Linux Setup
 
 ### Installation
+#### Automated Installation
+For automatic installation, you can download and run the installer script:
+```
+curl -fsSL https://raw.githubusercontent.com/rmia46/run-in-shell/main/installer.sh | bash
+```
 
+This script will automatically:
+
+    Create the hidden directory ~/.myscripts.
+
+    Download run.sh and runf.sh into that directory.
+
+    Set execution permissions.
+
+    Add the required aliases (run and runf) to your shell configuration file (.bashrc or .zshrc).
+
+Final Step (Action Required):
+
+The changes are added to your configuration file, but you must manually apply them to your current terminal session. Please restart your terminal or run the following command (adjusting for your shell):
+```
+source ~/.bashrc
+```
+# or
+```
+source ~/.zshrc
+```
+#### Manual Installation
 1. Create a folder named `.myscripts` in your home directory:
 
    ```bash
